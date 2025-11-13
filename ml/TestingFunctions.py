@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 import joblib
-
+#how well does the model predicts direction of change
 def directionalAccuracy(modelName, X_test, y_test):
     print(f"Loading model : {modelName}...")
     model = load_model("./models/" + modelName + ".keras")
