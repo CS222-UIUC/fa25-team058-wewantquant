@@ -1,4 +1,4 @@
-import DataFunctions, TrainingFunctions, TestingFunctions, Entry
+import DataFunctions, TrainingFunctions, TestingFunctions
 import pytest
 import pandas as pd
 import numpy as np
@@ -73,6 +73,29 @@ def testBreakDataSequenceShapesMax():
     assert x.shape == (0,10,4)
     assert y.shape == (0)
 
-def testSplitShape():
-    
-#to write
+@pytest.mark.parametrize("split_frac", [0.6, 0.8, 0.9])
+def testGenerateSplitShapes(split_frac):
+    X = np.arange(100).reshape(50, 2)
+    y = np.arange(50)
+
+    X_train, X_test, y_train, y_test = DataFunctions.generateSplit(X, y, split_frac)
+
+    expected_split = int(split_frac * len(X))
+    assert len(X_train) == expected_split
+    assert len(X_test) == len(X) - expected_split
+    # ensure order is preserved
+    assert np.array_equal(X_train[-1], X[expected_split - 1])
+    assert np.array_equal(X_test[0], X[expected_split])
+def testGetDataframeDrops0(tmp_path):
+    # create a temporary CSV file
+    file = tmp_path / "test.csv"
+    df = pd.DataFrame({
+        "open": [1, 2, np.nan],
+        "high": [3, 4, 5]
+    })
+    df.to_csv(file, index=False)
+
+    result = DataFunctions.getDataframe(str(file))
+
+    assert result.shape == (2, 2)   # 1 row with NaN removed
+    assert result.isnull().sum().sum() == 0
