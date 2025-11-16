@@ -10,8 +10,8 @@ def directionalAccuracy(modelName, X_test, y_test):
     print(f"Loading model : {modelName}...")
 
     # We need the exact scaler for the model
-    model = load_model("../models/" + modelName + ".keras")
-    scaler = joblib.load("../models/" + modelName + "_scaler.pkl")   
+    model = load_model("./models/" + modelName + ".keras")
+    scaler = joblib.load("./models/" + modelName + "_scaler.pkl")   
 
     num_features = X_test.shape[2]
 

@@ -1,7 +1,7 @@
 import DataFunctions, TrainingFunctions, TestingFunctions
 import pandas as pd
 
-path = "../data/all_stocks_5yr.csv"
+path = "./data/all_stocks_5yr.csv"
 features = ["open", "high", "low", "close", "volume"]
 
 df = DataFunctions.getDataframe(path)
