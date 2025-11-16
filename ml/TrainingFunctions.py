@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 
 import joblib
+import os
 
 import DataFunctions
 import TestingFunctions
@@ -52,11 +53,10 @@ def trainTorchLSTM(df, name, pred_col, epochs, seq_length = 60, train_split = 0.
     model.summary()
     history = model.fit(X_train, y_train, epochs=epochs, batch_size=32, validation_split=0.1)
 
+    os.makedirs("./models", exist_ok=True)
     model.save("./models/" + name + ".keras")
     joblib.dump(scaler, "./models/" + name + "_scaler.pkl")
 
-    TestingFunctions.directionalAccuracy(name, X_test, y_test)
+    directional_acc = TestingFunctions.directionalAccuracy(name, X_test, y_test)
 
     return history
-
-
