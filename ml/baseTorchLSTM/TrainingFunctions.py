@@ -60,5 +60,3 @@ def trainTorchLSTM(df, name, pred_col, epochs, seq_length = 60, train_split = 0.
     directional_acc = TestingFunctions.directionalAccuracy(name, X_test, y_test)
 
     return history
-
-
