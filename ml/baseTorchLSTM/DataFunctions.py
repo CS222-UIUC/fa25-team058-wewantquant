@@ -30,7 +30,7 @@ def breakDataIntoSequences(data, seq_length, pred_col):
     for i in range(len(data) - seq_length):
         X.append(data[i : i + seq_length])
         y.append(
-            data[i + seq_length, 3] - data[i + seq_length - 1, pred_col]
+            data[i + seq_length, pred_col] - data[i + seq_length - 1, pred_col]
         )  # changed
     return np.array(X), np.array(y)
 
@@ -43,7 +43,7 @@ def scaleData(df):
 
     return scaled_data, scaler
 
-#split dataset into 80%% training 20% testing
+
 def generateSplit(X, y, split_frac = 0.8):
 
     split = int(split_frac * len(X))
