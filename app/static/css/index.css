@@ -1,0 +1,47 @@
+p.ex1 {
+        border: 1px solid red;
+        padding: 20px 40px;  /* Reduced padding */
+        margin: 20px auto;   /* Added margin */
+        max-width: 800px;    /* Constrain width */
+    }
+    
+    h1 {
+        font-size: 80px;     /* Reduced from 150px */
+        color: #000000;
+        font-family: Courier;
+        text-align: center;
+        margin: 20px 0;      /* Control spacing */
+    }
+    
+    h4 {
+        font-size: 40px;     /* Reduced from 50px */
+        font-family: Courier;
+        margin: 15px 0;      /* Control spacing */
+    }
+    
+    p {
+        font-size: 24px;     /* Reduced from 30px */
+        font-family: Courier;
+    }
+
+    body {
+        background-image: url("{{ url_for('static', filename='images/stockprojectimage.png') }}");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;  /* Changed from 100% 100% for better scaling */
+        min-height: 100vh;       /* Ensure body is at least viewport height */
+        overflow-x: hidden;      /* Prevent horizontal scroll */
+    }
+    
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .content-wrapper {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
