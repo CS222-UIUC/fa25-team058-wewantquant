@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Financial Model Simulator{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+<div class="content-wrapper">
+    <h1>Welcome to our CS 222 Project!</h1>
+    <h4 class="center">What is our Project?</h4>
+    <p class="ex1" style="text-align:center">
+        <strong>Our project will allow you to query various models to predict real time stock market data! (please do not actually follow their advice)</strong>
+    </p>
+</div>
+{% endblock %}
