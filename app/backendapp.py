@@ -4,6 +4,8 @@ import pytest
 import random
 from datetime import datetime, timedelta
 
+from ml.entry_LSTM import predict as LSTM_predict
+
 flaskapp = Flask(__name__)
 
 @flaskapp.route('/index')
@@ -41,6 +43,30 @@ def predict_post():
         'arima': 'ARIMA',
         'prophet': 'Prophet'
     }
+
+    if model == 'lstm':
+        current, pred_values = LSTM_predict(ticker, days)
+        print("/PREDICT APP TICKER", ticker)
+        predictions = []
+        start_date = datetime.now().date() + timedelta(days=1)
+
+        for i, price in enumerate(pred_values):
+            prediction_date = (start_date + timedelta(days=i)).strftime("%Y-%m-%d")
+
+            predictions.append({
+                "date": prediction_date,
+                "price": round(float(price), 2)
+            })
+
+        result = {
+            'ticker': ticker,
+            'model_name': model_names.get(model, model),
+            'current_price': current, # RANDOM AHH STUB
+            'predictions': predictions,
+            'confidence': random.randint(65, 95),
+            'accuracy': random.randint(70, 90)
+            }
+        return result
     
     # Generate current price
     current_price = round(random.uniform(50, 500), 2)
