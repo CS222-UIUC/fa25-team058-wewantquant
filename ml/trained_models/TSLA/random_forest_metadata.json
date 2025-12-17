@@ -1,0 +1,15 @@
+{
+  "ticker": "TSLA",
+  "model_type": "random_forest",
+  "trained_at": "2025-12-17T04:32:00.335576",
+  "training_period": "5y",
+  "test_size": 0.2,
+  "metrics": {
+    "r2_score": 0.9670343772252203,
+    "mae": 8.445017533271068,
+    "rmse": 12.211643171946832,
+    "mse": 149.12422895895568
+  },
+  "feature_count": 113,
+  "training_samples": 1177
+}

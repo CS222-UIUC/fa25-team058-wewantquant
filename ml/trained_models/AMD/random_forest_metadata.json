@@ -1,0 +1,15 @@
+{
+  "ticker": "AMD",
+  "model_type": "random_forest",
+  "trained_at": "2025-12-17T04:32:02.461272",
+  "training_period": "5y",
+  "test_size": 0.2,
+  "metrics": {
+    "r2_score": 0.8710354669847893,
+    "mae": 8.465320987715302,
+    "rmse": 17.75305683656907,
+    "mse": 315.1710270424518
+  },
+  "feature_count": 113,
+  "training_samples": 1177
+}

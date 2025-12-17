@@ -1,0 +1,15 @@
+{
+  "ticker": "AMZN",
+  "model_type": "linear_regression",
+  "trained_at": "2025-12-17T04:31:59.129374",
+  "training_period": "5y",
+  "test_size": 0.2,
+  "metrics": {
+    "r2_score": 0.9994287135989428,
+    "mae": 0.31692620821428713,
+    "rmse": 0.41448996270286365,
+    "mse": 0.1718019291814213
+  },
+  "feature_count": 113,
+  "training_samples": 1177
+}

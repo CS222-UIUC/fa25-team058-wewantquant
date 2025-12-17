@@ -1,0 +1,4 @@
+# Additional requirements for model persistence
+# Install with: pip install -r requirements_model_persistence.txt
+
+joblib>=1.3.0      # For efficient sklearn model serialization

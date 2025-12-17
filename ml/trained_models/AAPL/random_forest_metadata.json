@@ -1,0 +1,15 @@
+{
+  "ticker": "AAPL",
+  "model_type": "random_forest",
+  "trained_at": "2025-12-17T04:31:57.633144",
+  "training_period": "5y",
+  "test_size": 0.2,
+  "metrics": {
+    "r2_score": 0.811681734143727,
+    "mae": 7.7536943360976265,
+    "rmse": 11.243568332199553,
+    "mse": 126.41782884084063
+  },
+  "feature_count": 113,
+  "training_samples": 1177
+}
