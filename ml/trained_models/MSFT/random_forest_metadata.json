@@ -1,0 +1,15 @@
+{
+  "ticker": "MSFT",
+  "model_type": "random_forest",
+  "trained_at": "2025-12-17T04:31:58.976115",
+  "training_period": "5y",
+  "test_size": 0.2,
+  "metrics": {
+    "r2_score": 0.31465054907064194,
+    "mae": 33.15908934081071,
+    "rmse": 42.96718003922858,
+    "mse": 1846.1785605234832
+  },
+  "feature_count": 113,
+  "training_samples": 1177
+}

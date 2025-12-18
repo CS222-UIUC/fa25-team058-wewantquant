@@ -1,0 +1,15 @@
+{
+  "ticker": "GOOGL",
+  "model_type": "random_forest",
+  "trained_at": "2025-12-17T04:31:58.253039",
+  "training_period": "5y",
+  "test_size": 0.2,
+  "metrics": {
+    "r2_score": 0.06080693168711915,
+    "mae": 26.94988394672867,
+    "rmse": 47.000656111107666,
+    "mse": 2209.0616748746024
+  },
+  "feature_count": 113,
+  "training_samples": 1177
+}
