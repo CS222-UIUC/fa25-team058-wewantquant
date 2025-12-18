@@ -11,14 +11,28 @@ While there are many other programs that try to predict the stock market, ours i
 
 
 # Installation Instructions  
-- Download the app and ml folders.
+To download the repository run
+```
+git clone https://github.com/CS222-UIUC/fa25-team058-wewantquant.git
+```
 
-- Run **backendapp.py** in the app folder.
+To install the necesarry libraries run
+```
+pip install flask pandas numpy scikit-learn yfinance joblib
+```
 
-- Go to the provided url in your web browser.
+To start the predictor run 
+```
+cd app && python backendapp.py
+```
+
+To access run 
+```
+Open http://localhost:5000
+```
 
 # Developers
-- **Aniketh Ganta**:
-- **Chinmay Rawat**:
-- **Aarya Baid**:
-- **Colin Edsey**: Designed test cases. Made the front end visually appealing.
+- **Aniketh Ganta**: Backend lead. Connected our model to the website.
+- **Chinmay Rawat**: Deep learning specialist. Implemented pytorch and our LSTM neural network.
+- **Aarya Baid**: Machine learning engineer. Designed our random forest model.
+- **Colin Edsey**: Front end developer. Made the front end visually appealing.
