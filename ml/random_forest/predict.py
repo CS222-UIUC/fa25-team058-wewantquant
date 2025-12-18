@@ -14,13 +14,14 @@ from datetime import datetime, timedelta
 import os
 
 # Import our data fetching functions
-try:
-    from fetch_data import fetch_stock_data, add_technical_indicators
-except ImportError:
-    import sys
-    sys.path.append(os.path.dirname(__file__))
-    from fetch_data import fetch_stock_data, add_technical_indicators
+#try:
+#    from fetch_data import fetch_stock_data, add_technical_indicators
+#except ImportError:
+#    import sys
+#    sys.path.append(os.path.dirname(__file__))
+#    from fetch_data import fetch_stock_data, add_technical_indicators
 
+from ml.random_forest.fetch_data import fetch_stock_data, add_technical_indicators
 
 def prepare_features(df):
     """
@@ -536,11 +537,11 @@ def predict_stock_for_api_with_pretrained(ticker, days_ahead=7, use_pretrained=T
     import sys
     import os
     # Add parent directory to path for model_loader import
-    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    if parent_dir not in sys.path:
-        sys.path.insert(0, parent_dir)
+    #parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    #if parent_dir not in sys.path:
+    #    sys.path.insert(0, parent_dir)
 
-    from model_loader import load_or_train_model
+    from ml.model_loader import load_or_train_model
 
     # Fetch recent data for predictions
     # Need enough data for feature engineering (lag features + rolling windows)

@@ -7,10 +7,10 @@ import sys
 import os
 
 # Add parent directory to path to allow imports
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+#sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from .predict import predict_stock_for_api_with_pretrained, predict_stock_for_api
-from .fetch_data import fetch_stock_data
+from ml.linear_reg.predict import predict_stock_for_api_with_pretrained, predict_stock_for_api
+from ml.linear_reg.fetch_data import fetch_stock_data
 import pandas as pd
 from datetime import datetime
 

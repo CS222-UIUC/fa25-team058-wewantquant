@@ -6,9 +6,11 @@ from datetime import datetime, timedelta
 import sys
 import os
 
+from ml.random_forest.entry import run_prediction as rf_predict
+from ml.linear_reg.entry import run_prediction as lr_predict
 
 # Add ml directory to path for imports
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'ml'))
+#sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'ml'))
 
 flaskapp = Flask(__name__)
 
@@ -49,13 +51,13 @@ def predict_post():
     # Run the actual model
     if model == 'random_forest':
 
-        from random_forest.entry import run_prediction
+        #from random_forest.entry import run_prediction as rf_predict
 
         try:
             # Import the random forest entry point
 
             # Run prediction
-            result = run_prediction(ticker, days_ahead=days)
+            result = rf_predict(ticker, days_ahead=days)
             return jsonify(result)
 
         except Exception as e:
@@ -63,13 +65,13 @@ def predict_post():
 
     elif model == 'linear_regression':
 
-        from linear_reg.entry import run_prediction
+        #from linear_reg.entry import run_prediction as lr_predict
 
         try:
             # Import the linear regression entry point
 
             # Run prediction
-            result = run_prediction(ticker, days_ahead=days)
+            result = lr_predict(ticker, days_ahead=days)
             return jsonify(result)
 
         except Exception as e:
