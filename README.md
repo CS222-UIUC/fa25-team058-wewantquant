@@ -7,6 +7,7 @@ While there are many other programs that try to predict the stock market, ours i
 
 # Technical Architecture 
 
+<img width="958" height="671" alt="Untitled drawing" src="https://github.com/user-attachments/assets/f65dd887-346a-4cb6-bd79-3b1c84eb0dba" />
 
 
 # Installation Instructions  
