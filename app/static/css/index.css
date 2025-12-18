@@ -1,36 +1,56 @@
+.roboto-main {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
 p.ex1 {
-        border: 1px solid red;
+        border: 0px solid red;
         padding: 20px 40px;  /* Reduced padding */
         margin: 20px auto;   /* Added margin */
         max-width: 800px;    /* Constrain width */
+        background-color: #1b263b;
+        border-radius: 30px;
     }
     
     h1 {
         font-size: 80px;     /* Reduced from 150px */
-        color: #000000;
-        font-family: Courier;
+        color: #e0e1dd;
+        font-family: "Roboto", sans-serif;
         text-align: center;
         margin: 20px 0;      /* Control spacing */
     }
     
     h4 {
         font-size: 40px;     /* Reduced from 50px */
-        font-family: Courier;
+        font-family: "Roboto", sans-serif;
         margin: 15px 0;      /* Control spacing */
     }
     
     p {
         font-size: 24px;     /* Reduced from 30px */
-        font-family: Courier;
+        font-family: "Roboto", sans-serif;
     }
 
     body {
-        background-image: url("{{ url_for('static', filename='images/stockprojectimage.png') }}");
+        background-color: #0D1B2a;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;  /* Changed from 100% 100% for better scaling */
         min-height: 100vh;       /* Ensure body is at least viewport height */
         overflow-x: hidden;      /* Prevent horizontal scroll */
+        color: #778da9;
     }
     
     .center {

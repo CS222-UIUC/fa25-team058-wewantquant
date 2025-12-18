@@ -12,6 +12,8 @@ from ml.linear_reg.entry import run_prediction as lr_predict
 # Add ml directory to path for imports
 #sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'ml'))
 
+from ml.entry_LSTM import predict as LSTM_predict
+
 flaskapp = Flask(__name__)
 
 @flaskapp.route('/index')
@@ -97,6 +99,18 @@ def predict_post():
             predictions.append({
                 'date': prediction_date,
                 'price': round(price, 2)
+    if model == 'lstm':
+        current, pred_values = LSTM_predict(ticker, days)
+        print("/PREDICT APP TICKER", ticker)
+        predictions = []
+        start_date = datetime.now().date() + timedelta(days=1)
+
+        for i, price in enumerate(pred_values):
+            prediction_date = (start_date + timedelta(days=i)).strftime("%Y-%m-%d")
+
+            predictions.append({
+                "date": prediction_date,
+                "price": round(float(price), 2)
             })
 
         result = {
@@ -109,6 +123,42 @@ def predict_post():
         }
 
         return jsonify(result)
+            'current_price': current, # RANDOM AHH STUB
+            'predictions': predictions,
+            'confidence': random.randint(65, 95),
+            'accuracy': random.randint(70, 90)
+            }
+        return result
+    
+    # Generate current price
+    current_price = round(random.uniform(50, 500), 2)
+    
+    # Generate predictions for each day
+    predictions = []
+    price = current_price
+    
+    for i in range(1, days + 1):
+        # Simulate daily price change (random walk with slight upward bias)
+        daily_change = random.uniform(-0.03, 0.04)  # -3% to +4% daily change
+        price = price * (1 + daily_change)
+        
+        prediction_date = (datetime.now() + timedelta(days=i)).strftime('%Y-%m-%d')
+        
+        predictions.append({
+            'date': prediction_date,
+            'price': round(price, 2)
+        })
+    
+    result = {
+        'ticker': ticker,
+        'model_name': model_names.get(model, model),
+        'current_price': current_price,
+        'predictions': predictions,
+        'confidence': random.randint(65, 95),
+        'accuracy': random.randint(70, 90)
+    }
+    
+    return jsonify(result)
 
 if __name__ == "__main__":
   flaskapp.run(debug=True)
